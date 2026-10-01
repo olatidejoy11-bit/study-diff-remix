@@ -1,0 +1,526 @@
+:root {
+    --purple: #6d4aff;
+    --purple-dark: #3d2b86;
+    --lavender: #eee9ff;
+    --cream: #fffaf1;
+    --ink: #27253a;
+    --muted: #716f82;
+    --green: #2d9d78;
+    --red: #d65353;
+    --white: #ffffff;
+    --line: #e6e1f0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--cream);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.app-header {
+    position: relative;
+    min-height: 430px;
+    padding: 70px max(7%, calc((100% - 1100px) / 2));
+    overflow: hidden;
+    color: var(--white);
+    background:
+        radial-gradient(circle at 78% 25%, rgba(255,255,255,.22), transparent 24%),
+        linear-gradient(130deg, var(--purple-dark), var(--purple));
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.app-header::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    left: -110px;
+    bottom: -130px;
+    border: 40px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 650px;
+}
+
+.header-label,
+.section-label,
+.music-label {
+    margin-bottom: 10px;
+    color: #ffdf77;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.app-header h1 {
+    margin-bottom: 13px;
+    font-size: clamp(53px, 8vw, 84px);
+    line-height: .95;
+    letter-spacing: -4px;
+}
+
+.app-header h1 span {
+    color: #ffdf77;
+}
+
+.header-tagline {
+    margin-bottom: 11px;
+    font-size: clamp(20px, 2.5vw, 27px);
+    font-weight: 800;
+}
+
+.header-description {
+    max-width: 520px;
+    color: #e9e5ff;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.study-visual {
+    position: relative;
+    z-index: 1;
+    width: 270px;
+    height: 240px;
+    flex: 0 0 270px;
+    border: 2px solid rgba(255,255,255,.3);
+    border-radius: 34px;
+    background: rgba(255,255,255,.14);
+    box-shadow: 0 22px 50px rgba(34,21,90,.28);
+    backdrop-filter: blur(8px);
+    animation: float 3.5s ease-in-out infinite;
+}
+
+.student-emoji {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 112px;
+}
+
+.visual-note {
+    position: absolute;
+    padding: 9px 13px;
+    color: var(--ink);
+    border-radius: 10px;
+    background: #ffdf77;
+    box-shadow: 0 8px 20px rgba(35,24,84,.2);
+    font-size: 12px;
+    font-weight: 800;
+    transform: rotate(-5deg);
+}
+
+.note-one { top: 22px; left: -28px; }
+.note-two { top: 86px; right: -25px; transform: rotate(7deg); }
+.note-three { bottom: 18px; left: -14px; background: #bdf5df; transform: rotate(4deg); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.app-container {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 90%);
+    margin: -42px auto 70px;
+}
+
+.builder-layout {
+    display: grid;
+    grid-template-columns: 1.5fr .8fr;
+    gap: 22px;
+}
+
+.mission-form-card,
+.choose-card,
+.missions-section {
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: var(--white);
+    box-shadow: 0 16px 40px rgba(61,43,134,.1);
+}
+
+.mission-form-card .section-label,
+.missions-section .section-label {
+    color: var(--purple);
+}
+
+.mission-form-card h2,
+.choose-card h2,
+.missions-section h2,
+.music-section h2 {
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+#mission-form {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 15px;
+    align-items: end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.form-group input {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 13px;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 9px;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 3px rgba(109,74,255,.12);
+}
+
+.add-button,
+#choose-button {
+    min-height: 48px;
+    padding: 12px 17px;
+    color: var(--white);
+    border: 0;
+    border-radius: 9px;
+    background: var(--purple);
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s ease, background .2s ease;
+}
+
+.add-button {
+    grid-column: 1 / -1;
+}
+
+.add-button:hover,
+#choose-button:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+.choose-card {
+    color: var(--white);
+    background: var(--purple-dark);
+}
+
+.choose-icon {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 20px;
+    color: var(--purple-dark);
+    border-radius: 14px;
+    background: #ffdf77;
+    font-size: 23px;
+}
+
+.choose-card > p:not(.section-label, .suggestion-message) {
+    margin: 12px 0 20px;
+    color: #dcd5ff;
+    line-height: 1.6;
+}
+
+#choose-button {
+    width: 100%;
+    color: var(--purple-dark);
+    background: #ffdf77;
+}
+
+.suggestion-message {
+    min-height: 22px;
+    margin-top: 14px;
+    color: #bdf5df;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.summary-section {
+    margin: 22px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.summary-card {
+    padding: 22px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: var(--white);
+}
+
+.summary-card span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--purple);
+    font-size: 34px;
+    font-weight: 900;
+}
+
+.summary-card:nth-child(2) span {
+    color: var(--green);
+}
+
+.summary-card p {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.missions-heading {
+    margin-bottom: 22px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#mission-total {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.mission-list {
+    display: grid;
+    gap: 13px;
+}
+
+.empty-message {
+    padding: 44px 20px;
+    color: var(--muted);
+    border: 2px dashed var(--line);
+    border-radius: 14px;
+    text-align: center;
+}
+
+.empty-message span {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.empty-message h3 {
+    margin-bottom: 5px;
+    color: var(--ink);
+}
+
+.mission-card {
+    padding: 19px;
+    border: 1px solid var(--line);
+    border-left: 6px solid #ffca4b;
+    border-radius: 12px;
+    background: #fffdf4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.mission-card.completed {
+    border-left-color: var(--green);
+    background: #f1fcf7;
+}
+
+.mission-card.completed h3 {
+    color: var(--muted);
+    text-decoration: line-through;
+}
+
+.mission-info h3 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.mission-meta {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.mission-actions {
+    display: flex;
+    gap: 7px;
+    flex-shrink: 0;
+}
+
+.mission-actions button {
+    padding: 8px 11px;
+    border: 0;
+    border-radius: 7px;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.complete-button {
+    color: #116047;
+    background: #c9f5e4;
+}
+
+.delete-button {
+    color: #8f2929;
+    background: #ffe0e0;
+}
+
+.music-section {
+    margin-top: 22px;
+    padding: 29px 32px;
+    color: var(--white);
+    border-radius: 19px;
+    background: linear-gradient(120deg, #121212, #243a30);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.music-label {
+    color: #1ed760;
+}
+
+.music-section > div > p:last-child {
+    max-width: 650px;
+    margin-top: 8px;
+    color: #cdd5d0;
+    line-height: 1.6;
+}
+
+.music-section a {
+    flex-shrink: 0;
+    padding: 13px 18px;
+    color: #08230f;
+    border-radius: 999px;
+    background: #1ed760;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.app-footer {
+    padding: 22px;
+    color: #dcd5ff;
+    background: #261b58;
+    text-align: center;
+    font-size: 13px;
+}
+
+@media (max-width: 850px) {
+    .app-header {
+        min-height: 500px;
+    }
+
+    .study-visual {
+        width: 210px;
+        height: 200px;
+        flex-basis: 210px;
+    }
+
+    .student-emoji {
+        font-size: 85px;
+    }
+
+    .builder-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .app-header {
+        min-height: 0;
+        padding: 60px 6% 90px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .study-visual {
+        align-self: center;
+    }
+
+    .app-container {
+        width: 92%;
+    }
+
+    #mission-form {
+        grid-template-columns: 1fr;
+    }
+
+    .add-button {
+        grid-column: auto;
+    }
+
+    .mission-card,
+    .music-section {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .music-section a {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .mission-form-card,
+    .choose-card,
+    .missions-section,
+    .music-section {
+        padding: 24px 19px;
+    }
+
+    .summary-section {
+        grid-template-columns: 1fr;
+    }
+
+    .missions-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .mission-actions {
+        width: 100%;
+    }
+
+    .mission-actions button {
+        flex: 1;
+    }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="StudyDiff helps students plan and complete study missions.">
+    <title>StudyDiff | Study Differently</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-content">
+            <p class="header-label">Your creative study companion</p>
+            <h1>Study<span>Diff</span></h1>
+            <p class="header-tagline">Plan differently. Focus better. Achieve more.</p>
+            <p class="header-description">
+                Turn your study goals into small, achievable missions.
+            </p>
+        </div>
+
+        <div class="study-visual" aria-hidden="true">
+            <div class="student-emoji">👩🏽‍💻</div>
+            <div class="visual-note note-one">Read</div>
+            <div class="visual-note note-two">Focus</div>
+            <div class="visual-note note-three">Done ✓</div>
+        </div>
+    </header>
+
+    <main class="app-container">
+
+        <section class="builder-layout">
+            <div class="mission-form-card">
+                <p class="section-label">Create a mission</p>
+                <h2>What do you want to study?</h2>
+
+                <form id="mission-form">
+                    <div class="form-group">
+                        <label for="mission-name">Study mission</label>
+                        <input
+                            type="text"
+                            id="mission-name"
+                            placeholder="Example: Revise matrices"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input
+                            type="text"
+                            id="subject"
+                            placeholder="Example: Linear Algebra"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="deadline">Deadline</label>
+                        <input type="date" id="deadline" required>
+                    </div>
+
+                    <button type="submit" class="add-button">
+                        Add Mission
+                    </button>
+                </form>
+            </div>
+
+            <aside class="choose-card">
+                <span class="choose-icon" aria-hidden="true">✦</span>
+                <p class="section-label">Feeling undecided?</p>
+                <h2>Let StudyDiff choose.</h2>
+                <p>We’ll select one pending mission for you to begin.</p>
+                <button type="button" id="choose-button">Choose for Me</button>
+                <p id="suggestion-message" class="suggestion-message" aria-live="polite"></p>
+            </aside>
+        </section>
+
+        <section class="summary-section" aria-label="Mission summary">
+            <article class="summary-card">
+                <span id="pending-count">0</span>
+                <p>Pending Missions</p>
+            </article>
+
+            <article class="summary-card">
+                <span id="completed-count">0</span>
+                <p>Completed Missions</p>
+            </article>
+        </section>
+
+        <section class="missions-section">
+            <div class="missions-heading">
+                <div>
+                    <p class="section-label">Your study board</p>
+                    <h2>Study Missions</h2>
+                </div>
+                <span id="mission-total">0 missions</span>
+            </div>
+
+            <div id="mission-list" class="mission-list">
+                <div class="empty-message">
+                    <span aria-hidden="true">📚</span>
+                    <h3>No study missions yet</h3>
+                    <p>Add your first mission using the form above.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="music-section">
+            <div>
+                <p class="music-label">Focus music</p>
+                <h2>Set the mood for studying.</h2>
+                <p>Open a selected Spotify playlist and settle into your next mission.</p>
+            </div>
+
+            <a
+                href="https://open.spotify.com/playlist/07UHFyiPyJBz3AN4tqbnba?si=ecceafad064d4876"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Open Focus Playlist
+            </a>
+        </section>
+
+    </main>
+
+    <footer class="app-footer">
+        <p>StudyDiff — Designed and built by Joy Adebayo</p>
+    </footer>
+
+</body>
+</html>
